@@ -1,0 +1,29 @@
+{
+  "name": "design_system_core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@jc/ds_assets": "github:jwandekoken/meiuca_DS_assets#5b54ce8",
+    "@jc/ds_design_tokens": "github:jwandekoken/meiuca_DS_tokens#1b99d2e",
+    "lit": "^2.2.5",
+    "ts-loader": "^9.3.0"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "lit-css-loader": "^2.0.0",
+    "sass": "^1.52.1",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "typescript": "^4.7.2",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
