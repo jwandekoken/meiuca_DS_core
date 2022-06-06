@@ -1,4 +1,9 @@
+@use "../../../node_modules/@jc/ds_design_tokens/dist/scss/globals.scss" as
+  globals;
+
 button {
   background: black;
   color: white;
+  padding: 16px;
+  border-radius: globals.$border-radius-md;
 }

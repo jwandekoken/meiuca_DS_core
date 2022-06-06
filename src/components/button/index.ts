@@ -5,11 +5,7 @@ import style from "./style.scss";
 @customElement("dsc-button")
 export class DscButton extends LitElement {
   // Define scoped styles right with your component, in plain CSS
-  static styles = css`
-    :host {
-      color: blue;
-    }
-  `;
+  static styles = style;
 
   // Declare reactive properties
   @property()
