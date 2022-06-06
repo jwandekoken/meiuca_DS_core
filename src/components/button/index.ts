@@ -1,4 +1,4 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
+import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import style from "./style.scss";
 
@@ -18,5 +18,11 @@ export class DscButton extends LitElement {
         <slot></slot>
       </button>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "dsc-button": DscButton;
   }
 }
