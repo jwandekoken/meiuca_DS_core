@@ -17,6 +17,7 @@
     "@jc/ds_assets": "github:jwandekoken/meiuca_DS_assets#5b54ce8",
     "@jc/ds_design_tokens": "github:jwandekoken/meiuca_DS_tokens#1b99d2e",
     "lit": "^2.2.5",
+    "storybook-addon-designs": "^6.2.1",
     "ts-loader": "^9.3.0"
   },
   "devDependencies": {
