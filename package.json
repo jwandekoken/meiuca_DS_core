@@ -6,7 +6,9 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.prod.js",
     "start": "NODE_ENV=development webpack serve --hot --config webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "keywords": [],
   "author": "",
@@ -15,13 +17,23 @@
     "@jc/ds_assets": "github:jwandekoken/meiuca_DS_assets#5b54ce8",
     "@jc/ds_design_tokens": "github:jwandekoken/meiuca_DS_tokens#1b99d2e",
     "lit": "^2.2.5",
+    "storybook-addon-designs": "^6.2.1",
     "ts-loader": "^9.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@storybook/addon-actions": "^6.5.8",
+    "@storybook/addon-essentials": "^6.5.8",
+    "@storybook/addon-links": "^6.5.8",
+    "@storybook/builder-webpack5": "^6.5.8",
+    "@storybook/manager-webpack5": "^6.5.8",
+    "@storybook/web-components": "^6.5.8",
+    "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
     "lit-css-loader": "^2.0.0",
+    "lit-html": "^2.2.5",
     "sass": "^1.52.2",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
