@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: ["./src/index.ts"],
@@ -18,6 +19,21 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: "node_modules/@jc/ds_design_tokens/dist/css/globals.css",
+          to: "tokens/globals.css",
+        },
+        {
+          from: "**/**/*.css",
+          context: "node_modules/@jc/ds_design_tokens/dist/css",
+          to: "tokens/[path]/[name][ext]",
+        },
+      ],
+    }),
+  ],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "components/[name].js",

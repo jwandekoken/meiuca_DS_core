@@ -1,21 +1,30 @@
+const webpackBase = require("../webpack.common");
+const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = {
-  stories: ["../src/**/*.stories.mdx","../src/**/**/*.stories.@(js|jsx|ts|tsx)" , "../src/**/*.stories.@(js|jsx|ts|tsx)"],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "storybook-addon-designs",
-  ],
+  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
   framework: "@storybook/web-components",
   core: {
     builder: "@storybook/builder-webpack5",
   },
-  webpackFinal: async (config) => {
-    // find web-components rule for extra transpilation
-    const webComponentsRule = config.module.rules.find(
-      (rule) => rule.use && rule.use.options && rule.use.options.babelrc === false
+  webpackFinal: (config) => {
+    config.module.rules.push(...webpackBase.module.rules);
+    config.plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: "node_modules/@jc/ds_design_tokens/dist/css/globals.css",
+            to: "tokens/globals.css",
+          },
+          {
+            from: "**/**/*.css",
+            context: "node_modules/@jc/ds_design_tokens/dist/css",
+            to: "tokens/[path]/[name][ext]",
+          },
+        ],
+      })
     );
-    // add your own `my-library`
-    webComponentsRule.test.push(new RegExp(`node_modules(\\/|\\\\)my-library(.*)\\.js$`));
 
     return config;
   },
