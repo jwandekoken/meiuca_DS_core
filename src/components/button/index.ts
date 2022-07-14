@@ -1,11 +1,11 @@
 import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
+import { ifDefined } from "lit/directives/if-defined.js";
 import style from "./style.scss";
 
 @customElement("dsc-button")
 export class DscButton extends LitElement {
-  // Define scoped styles right with your component, in plain CSS
   static styles = style;
 
   @property({
@@ -19,17 +19,23 @@ export class DscButton extends LitElement {
   loading = false;
 
   private handleClick = () => {
-    console.log("clicked");
+    this.dispatchEvent(
+      new CustomEvent("dscClick", {
+        bubbles: true,
+        composed: true,
+      })
+    );
   };
 
-  // Render the UI as a function of component state
   render() {
     return html`
       <button
         class=${classMap({
           button: true,
-          "button-loading": this.loading,
+          "button--loading": this.loading,
         })}
+        aria-disabled="${this.disabled}"
+        aria-label="${ifDefined(this.loading ? "Loading" : undefined)}"
         ?disabled=${this.disabled}
         @click=${this.handleClick}
       >
