@@ -62,12 +62,16 @@ export const decorators = [
     }
 
     return html`
-      <style>${style}</style>
+      <style>
+        ${style}
+      </style>
       <div brand=${brand} theme=${theme} mode=${context.globals.mode}>
-        <link rel="stylesheet" type="text/css" href="./tokens/globals.css"></link>
-        <link rel="stylesheet" type="text/css" href="./tokens/${
-          context.globals.theme
-        }/${context.globals.mode}.css"></link>
+        <link rel="stylesheet" type="text/css" href="./tokens/globals.css" />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="./tokens/${context.globals.theme}/${context.globals.mode}.css"
+        />
         ${Story()}
       </div>
     `;
